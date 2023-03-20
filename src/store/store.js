@@ -1,8 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import useReducer from '../viewModal/users_view_modal/userSlice'
+import {create} from 'zustand'
+import userViewModal from "../viewModal/users_view_modal/UserViewModal";
+const useStore = create((set, get)=>({
+    ...userViewModal(set,get)
+}))
 
-export const store = configureStore({
-    reducer:{
-        user: useReducer,
-    }
-})
+export default useStore

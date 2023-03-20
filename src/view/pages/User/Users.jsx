@@ -1,29 +1,23 @@
 import React, { memo, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCounter } from '../../../viewModal/users_view_modal/userSlice'
-import UserViewModal from '../../../viewModal/users_view_modal/UserViewModal'
+import useStore from '../../../store/store'
 import UserList from './UserList'
 
 const MemoComp = memo(UserList)
 const Users = () => {
-  const dispatch = useDispatch()
-  const {data: users, counter} = useSelector((state) => state.user)
-  const { fetchUsers } = UserViewModal()
+  const users = useStore((state) => state.users)
+  const fetchUsers = useStore((state)=> state.fetchUsers)
   useEffect(()=>{
     fetchUsers()
   },[])
-  
-  function handleCounter(){
-    dispatch(setCounter())
-  }
+  console.log(users)
 
   return (
 
     <div>
       <span>User</span>
-      <button onClick={handleCounter}>+</button>
-      <span>{counter}</span>
-      {users.map((user)=>{
+      <button>+</button>
+      {/* <span>{counter}</span> */}
+      {/* {users.map((user)=>{
         return(
           <MemoComp 
             key={user.id}
@@ -34,7 +28,7 @@ const Users = () => {
           //   user= {user}
           // />
         )
-      })}
+      })} */}
     </div>
   )
 }

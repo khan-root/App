@@ -1,5 +1,5 @@
 import React, {  useEffect } from 'react'
-import { useUsers } from '../../viewModal/usersViewModel/userServices'
+import { useUsers } from '../../viewModel/usersViewModel/userServices'
 import UserList from './UserList'
 
 

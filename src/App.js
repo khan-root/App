@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import Users from './view/pages/User/Users'
+import React from 'react'
+import Users from './view/User/Users'
 
 const App = () => {
   
